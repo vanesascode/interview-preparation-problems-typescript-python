@@ -28,14 +28,6 @@ plusMinus(arr)
 # 0.166667
 # 0.333333
 
-##############################################################################
-
-for x in range(3, 6):
-    print(x)
-    
-# 3
-# 4
-# 5
 
 ##############################################################################
 
@@ -58,3 +50,24 @@ def miniMaxSum(arr):
 
 inputArray = [5, 3, 9, 1, 7]
 miniMaxSum(inputArray)
+
+##############################################################################
+
+# 3 - Given a time in -hour AM/PM format, convert it to military (24-hour) time.
+
+def timeConversion(s):
+    amPmFormat = s[-2:]
+    h12 = s[0:2]
+    
+    if amPmFormat == "AM":
+        if h12 == "12":
+            h12 = "00"
+    else:
+        if h12 != "12":
+            h12 = str(int(h12) + 12).zfill(2)
+    
+    h24str = str(h12).zfill(2)
+    return h24str + s[2:-2]
+
+print(timeConversion("08:30:45PM"))
+# 20:30:45

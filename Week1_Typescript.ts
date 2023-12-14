@@ -68,3 +68,30 @@ miniMaxSum(inputArray);
 // In the case of compareNumbers, the returned value of a - b allows the sort method to sort the numbers in ascending order. If a is less than b, the subtraction a - b will result in a negative number, indicating that a should come before b in the sorted array. If a is greater than b, the subtraction will result in a positive number, indicating that a should come after b. If a is equal to b, the subtraction will result in zero.
 
 // For example, when sorting an array [5, 2, 8, 1, 3] using this compareNumbers function, the result will be [1, 2, 3, 5, 8], as the elements are sorted in ascending order.
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+// 3 - Given a time in -hour AM/PM format, convert it to military (24-hour) time.
+
+function timeConversion(s: string): string {
+  const amPmFormat: string = s.slice(-2);
+  let h12: number = parseInt(s.slice(0, 2));
+
+  if (amPmFormat === "AM") {
+    if (h12 === 12) {
+      h12 = 0;
+    }
+  } else {
+    if (h12 !== 12) {
+      h12 += 12;
+    }
+  }
+
+  const h24str = h12.toString().padStart(2, "0");
+  return h24str + s.slice(2, -2);
+}
+
+const test = "01:05:45PM";
+console.log(timeConversion(test));
+
+//[LOG]: "13:05:45"
