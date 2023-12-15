@@ -71,3 +71,25 @@ def timeConversion(s):
 
 print(timeConversion("08:30:45PM"))
 # 20:30:45
+
+##############################################################################
+
+# 4 - Breaking the records: 
+
+def breakingRecords(scores):
+    min_score = max_score = scores[0]
+    min_breaks = max_breaks = 0
+    
+    for score in scores[1:]:
+        if score > max_score:
+            max_score = score
+            max_breaks += 1
+        elif score < min_score:
+            min_score = score
+            min_breaks += 1
+    
+    return [max_breaks, min_breaks]
+
+print(breakingRecords([10, 5, 20, 20, 4, 5, 2, 25, 1]))
+
+# [2, 4]

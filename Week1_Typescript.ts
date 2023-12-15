@@ -95,3 +95,34 @@ const test = "01:05:45PM";
 console.log(timeConversion(test));
 
 //[LOG]: "13:05:45"
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+// 3 - Breaking the records
+
+function breakingRecords(scores: number[]): number[] {
+  let minScore: number = scores[0];
+  let maxScore: number = minScore;
+
+  let minNumber: number = 0;
+  let maxNumber: number = 0;
+
+  for (let i = 1; i < scores.length; i++) {
+    if (scores[i] > maxScore) {
+      maxScore = scores[i];
+      maxNumber++;
+    } else if (scores[i] < minScore) {
+      minScore = scores[i];
+      minNumber++;
+    }
+  }
+
+  let result: number[] = [];
+  result.push(maxNumber, minNumber);
+
+  return result;
+}
+
+console.log(breakingRecords([10, 5, 20, 20, 4, 5, 2, 25, 1]));
+
+// [LOG]: [2, 4]
