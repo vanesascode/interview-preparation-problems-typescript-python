@@ -1,6 +1,6 @@
 # Preparation of interview problems (both in Typescript and in Python)
 
-## Week 1:
+## Exercises:
 
 - Plus Minus
 - Mini-Max Sum
