@@ -132,3 +132,31 @@ result = array.join("")
 // console.log(result)
 
 //12345678910
+
+
+//////////////////////////////
+
+const scores = [2, 3, 6, 6, 5];
+const uniqueScores = [...new Set(scores)]; //[ 2, 3, 6, 5 ]
+uniqueScores.sort(); //[ 2, 3, 5, 6 ]
+const runnerUpScore = uniqueScores[uniqueScores.length - 2];
+// console.log(runnerUpScore); //5
+
+
+//////////////////////////////////////
+
+s = "Pythonist 2"
+
+let output = []
+
+for (let i = 0; i < s.length; i++) {
+  if (s[i] === s[i].toUpperCase()) {
+    output.push(s[i].toLowerCase())
+  } else {
+    output.push(s[i].toUpperCase())
+  }
+}
+
+console.log(output.join("")) // pYTHONIST 2
+
+//////////////////////////////////////
