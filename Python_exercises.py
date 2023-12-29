@@ -71,3 +71,36 @@ for char in s:
         output += char.upper()
 
 print(output)  # pYTHONIST 2
+
+
+#################################### JOIN VS SPLIT: 
+
+a = "this is a string"
+a = a.split(" ") # a is converted to a list of strings. 
+print(a)
+# ['this', 'is', 'a', 'string']
+a = "-".join(a)
+print(a)
+# this-is-a-string 
+a = "this is a string"
+a = "-".join(a)
+print(a)
+# t-h-i-s- -i-s- -a- -s-t-r-i-n-g
+
+#################################### PYTHON (IN) VS JAVASCRIPT (OF)
+
+def aVeryBigSum(ar):
+    sum = 0
+    
+    for num in ar:
+        sum += num
+        
+    return sum
+  
+# function aVeryBigSum(ar) {
+#    let sum = 0;
+#     for (let num of ar) {
+#     sum += num;
+#     }
+#    return sum;
+# }

@@ -94,3 +94,58 @@ print(breakingRecords([10, 5, 20, 20, 4, 5, 2, 25, 1]))
 
 # [2, 4]
 
+##############################################################################
+
+# 5 - Counting Duplicates
+
+# Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits:
+
+inputString = "aabBbcde"
+
+def countDuplicates(inputString):
+    charCount = {}  # Dictionary to store the count of each character
+    duplicates = 0  # Variable to keep track of the number of duplicates
+
+    # Loop through each character in the input string
+    for char in inputString:
+        char = char.lower()  # Convert the character to lowercase
+
+        # Check if the character is an alphabet (a-z) or a numeric digit (0-9)
+        if char.isalpha() or char.isdigit():
+            # If the character already exists in the charCount dictionary
+            if char in charCount:
+                charCount[char] += 1  # Increment the count of the character
+                # If the count becomes 2, it means the character is a duplicate
+                if charCount[char] == 2:
+                    duplicates += 1  # Increment the duplicates count
+            else:
+                charCount[char] = 1  # Initialize the count for the character as 1
+
+    print(charCount)  # Not necessary, just to see what's going on: { a: 2, b: 2, c: 1, d: 1, e: 1 }
+
+    return duplicates  # Return the total number of duplicates found
+
+print(countDuplicates(inputString))
+
+# 2
+
+##############################################################################
+
+# 6 - Staircase pattern
+
+def staircase(n):
+    for i in range(1, n + 1):
+        # Print spaces
+        print(" " * (n - i), end="")
+        # Print "#" symbols
+        print("#" * i)
+
+# Example usage
+staircase(4)
+
+   #
+  ##
+ ###
+####
+
+# By default, the print function in Python adds a newline character (\n) at the end of each line. This causes the next line to be printed on a new line. However, by setting end="", we override the default behavior and specify that we want to print nothing ("") at the end of the line. This ensures that the next print statement will continue on the same line.
