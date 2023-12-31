@@ -162,6 +162,46 @@ console.log(output.join("")) // pYTHONIST 2
 //////////////////////////////////////
 
 
+//Of an array of numbers, find the number of times that the highest number is repeated: 
 
 
+function birthdayCakeCandles(candles) {
+  // Find the maximum height of the candles
+  const maxHeight = Math.max(...candles);
 
+  // Count the number of candles with the maximum height
+  let count = 0;
+  for (let i = 0; i < candles.length; i++) {
+    if (candles[i] === maxHeight) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+// Example usage
+const candles = [3, 2, 1, 3];
+console.log(birthdayCakeCandles2(candles)); // Output: 2
+
+///////
+
+function birthdayCakeCandles2(candles) {
+  let maxHeight = candles[0];
+  let count = 1;
+
+  for (let i = 1; i < candles.length; i++) {
+    if (candles[i] > maxHeight) {
+      maxHeight = candles[i];
+      count = 1;
+    } else if (candles[i] === maxHeight) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+// Example usage
+const candles2 = [3, 2, 1, 3];
+console.log(birthdayCakeCandles(candles2)); // Output: 2

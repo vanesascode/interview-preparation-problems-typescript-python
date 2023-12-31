@@ -40,6 +40,7 @@ function compareNumbers(a: number, b: number) {
 
 function miniMaxSum(arr: number[]): void {
   const orderedArr: number[] = arr.sort(compareNumbers);
+  // const orderedArr: number[] = arr.sort((a, b) => a - b);
   let minNumber: number = 0;
   let maxNumber: number = 0;
 
@@ -167,9 +168,89 @@ console.log(countDuplicates(inputString));
 
 // [LOG]: 2
 
+//////////////////////////////////////////////////////////////////////////////////////
+
+// 6 - Of an array of numbers, find the number of times that the highest number is repeated:
+
+function countOfHighestNum(candles: number[]) {
+  let candlesCounted = {};
+  const orderedCandles = candles.sort((a: number, b: number) => a - b);
+
+  for (let i = 0; i <= orderedCandles.length - 1; i++) {
+    if (orderedCandles[i] in candlesCounted) {
+      candlesCounted[orderedCandles[i]]++;
+    } else {
+      candlesCounted[orderedCandles[i]] = 1;
+    }
+  }
+
+  console.log(candlesCounted); // { '1': 1, '3': 1, '4': 2 }
+
+  let candleHeightsValues = Object.values(candlesCounted); // [ 1, 1, 2 ]
+
+  const lastCandleValue = candleHeightsValues[candleHeightsValues.length - 1]; // 2
+
+  return lastCandleValue;
+
+  //OR:
+
+  let candleHeights = Object.keys(candlesCounted); // [ '1', '3', '4' ]
+
+  const lastCandleHeight = candleHeights[candleHeights.length - 1]; // 4
+
+  const numberHighestCandle = candlesCounted[lastCandleHeight]; // 2
+
+  // return numberHighestCandle
+}
+
+console.log(countOfHighestNum([3, 4, 4, 1])); // Output: 2
+
+///simpler answers ///////////////////////////////////////////////////////////////
+
+function countOfHighestNum2(candles: number[]) {
+  // Find the maximum height of the candles
+  const maxHeight = Math.max(...candles);
+
+  // Count the number of candles with the maximum height
+  let count = 0;
+  for (let i = 0; i < candles.length; i++) {
+    if (candles[i] === maxHeight) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+// Example usage
+const candles = [3, 2, 1, 3];
+console.log(countOfHighestNum2(candles)); // Output: 2
+
+/////////////////////////////////
+
+function countOfHighestNum3(candles: number[]) {
+  let maxHeight = candles[0];
+  let count = 1;
+
+  for (let i = 1; i < candles.length; i++) {
+    if (candles[i] > maxHeight) {
+      maxHeight = candles[i];
+      count = 1;
+    } else if (candles[i] === maxHeight) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+// Example usage
+const candles2 = [3, 2, 1, 3];
+console.log(countOfHighestNum3(candles2)); // Output: 2
+
 /////////////////////////////////////////////////////////////////////////////////////
 
-// 6 - Staircase pattern
+// 7 - Staircase pattern
 
 function staircase(n: number) {
   for (let i = 1; i <= n; i++) {
